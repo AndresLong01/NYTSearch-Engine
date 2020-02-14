@@ -12,33 +12,75 @@
 </head>
 
 <body>
-    <div class="container-fluid" id="top">
-        </br></br>
-          <h1>☴ New York Times Search</h1>
-        </br></br>
-      </div>
+  <div class="container-fluid" id="top">
+    </br></br>
+    <h1>☴ New York Times Search</h1>
+    </br></br>
+  </div>
 
 
 
-<div class="card main w-screen mt-4" id="form">
+  <div class="card main w-screen mt-4" id="form">
+
     <div class="card-header">
-        Search Parameters
+      ☰ Search Parameters
     </div>
+
     <div class="inside-form">
-    <p>Search Term:</p>
-        <div class="form-group has-search">
-            <span class="fa fa-search form-control-feedback"></span>
-            <textarea type="text" class="form-control" id="input-box" placeholder="Search"></textarea>
+
+
+      <div class="form-group has-search">
+        <label for="Search Term">Search Term:</label>
+        <span class="fa fa-search form-control-feedback"></span>
+        <textarea type="text" class="form-control" id="input-box" placeholder="Search"></textarea>
+      </div>
+      </br>
+
+      <div class="records">
+        <label for="inputRecords">Number of Records to Retrieve</label>
+        <select id="inputRecords" class="form-control">
+          <option selected>Choose...</option>
+          <option>1</option>
+          <option>5</option>
+          <option>10</option>
+        </select>
+
+      </div>
+      </br></br>
+
+      <div class="years">
+        <div>
+          <label for="start-year">Start Year (Optional):</label>
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" id="input-box">
+        </div></br>
+        <div>
+          <label for="start-end">End Year (Optional):</label>
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" id="input-box">
         </div>
-    </br>
-    <button class="text-center">try this again</button>
+      </div>
+      <button class="text-center">try this again</button>
     </div>
-</div>
+    </br>
+  </div>
+  </div>
+  </br>
+  <div class="card main w-screen mt-4">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="script.js"></script>
+    <div class="card-header">
+      ☰ Top Articles
+    </div>
+
+    <div class="inside-form" id="results">
+      </br>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="script.js"></script>
 </body>
-
+</br></br>
 <style>
 
 </style>

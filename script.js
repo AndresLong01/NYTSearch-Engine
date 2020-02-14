@@ -3,7 +3,7 @@ var selector = $("selectoring");
 var field1 = $("#input-box");
 var beginDate = "20000101";
 var endDate = "20191231";
-
+var resulting = $("#results");
 
 var selection;
 
@@ -38,7 +38,7 @@ searchBtn.on("click", function(e){
             newA.attr("href", responses[i].web_url);
             newA.text("Link");
             newDiv.append(newA);
-            $("body").append(newDiv);
+            resulting.append(newDiv);
         }
     });
 })
