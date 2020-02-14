@@ -1,5 +1,5 @@
 var searchBtn = $("button");
-var selector = $("selectoring");
+var selector = $("#inputRecords");
 var field1 = $("#input-box");
 var beginDate = "20000101";
 var endDate = "20191231";
@@ -23,7 +23,8 @@ searchBtn.on("click", function(e){
     // hello
     //button $(this).prev().prev().prev().val();
     //use that value to change the loop for the result
-    console.log(field1.val());
+    console.log(selection);
+    console.log(fieldVal);
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -31,7 +32,7 @@ searchBtn.on("click", function(e){
         console.log(response);
         var responses = response.response.docs;
         
-        for(i=0; i<responses.length; i++){
+        for(i=0; i<selection; i++){
             var newDiv = $("<div>");
             newDiv.text(responses[i].abstract);
             var newA = $("<a>");
