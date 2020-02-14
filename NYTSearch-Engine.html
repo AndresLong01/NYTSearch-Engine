@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>NYT Article Search</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
@@ -10,19 +11,31 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
 </head>
 
-<header>
-    <div class="container">
+<body>
+    <div class="container-fluid" id="top">
         </br></br>
           <h1>☴ New York Times Search</h1>
         </br></br>
       </div>
-</header>
-
-<body>
 
 
 
+<div class="card main w-screen mt-4" id="form">
+    <div class="card-header">
+        Search Parameters
+    </div>
+    <div class="inside-form">
+    <p>Search Term:</p>
+        <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" id="input-box" placeholder="Search">
+        </div>
+    </br>
+      
+    </div>
 
+
+</div>
 </body>
 
 <style>

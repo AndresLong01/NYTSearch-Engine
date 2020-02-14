@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 header {
     font-family: "Open Sans", Helvetica, sans-serif;
 }
@@ -9,10 +16,31 @@ h1 {
     font-size: 62px;
 }
 
-.container {
+#top {
     text-align: center;
     background-color: rgb(32, 32, 95);
     color: white;
+}
+
+.container-fluid {
+    width: auto;
+    padding: 5px;
+}
+
+#input-box {
+    padding: 15px;
+
+}
+
+
+.inside-form {
+
+    padding: 15px;
+    margin: 5px;
+}
+
+span.icon {
+    font-family: FontAwesome;
 }
 
 .navbar {
@@ -26,3 +54,33 @@ body {
     margin: 0 auto;
     
 }
+
+@media screen and (max-width: 992px) {
+
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30%;
+    }
+    
+  
+
+    .wrapper {
+      width: 800px;
+    }
+
+@media screen and (max-width: 992px) {
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+    
+    .wrapper {
+        width: 600px;
+    }
+    }
