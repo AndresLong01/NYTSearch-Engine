@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
 </head>
 
-<!--Main Content for Search Engine-->
 <body>
   <div class="container-fluid" id="top">
     </br></br>
@@ -21,7 +20,7 @@
 
 
 
-  <main class="card main w-screen mt-4" id="form">
+  <div class="card main w-screen mt-4" id="form">
 
     <div class="card-header">
       ☰ Search Parameters
@@ -60,22 +59,27 @@
           <span class="fa fa-search form-control-feedback"></span>
           <input type="text" class="form-control" id="input-end">
         </div>
-      </div>
-      <button class="text-center">try this again</button>
+      </div><br><br>
+      <div style="text-align: center;">
+      <button class="btn btn-secondary btn-lg" id="button" style="text-align: center;">Submit Search</button></div>
     </div>
     </br>
-
-  </main>
-
-
+  </div>
   </br>
-  <div class="card main w-screen mt-4">
+
+  <div class="card main w-screen mt-4" id="results-section">
 
     <div class="card-header">
       ☰ Top Articles
     </div>
 
-    <div class="inside-form" id="results">
+    <!-- <div class="inside-form" id="results">
+      <p id = "articles">
+        <img src="test.JPG">
+        <div id="title">Title</div>
+        <div id="link">Link</div>
+        <div id="author">Author</div>
+      </p> -->
       </br>
     </div>
   </div>

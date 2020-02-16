@@ -3,6 +3,7 @@ var selector = $("#inputRecords");
 var field1 = $("#input-box");
 var beginDate = $("#input-begin");
 var endDate = $("#input-end");
+var resultTab = $("#results-section");
 var resulting = $("#results");
 
 var selection;
@@ -15,6 +16,7 @@ selector.on("change", function(e){
 
 searchBtn.on("click", function(e){
     e.preventDefault();
+    newCard.empty();
 
     var fieldVal = field1.val();
     var fieldBegin = "&begin_date" + beginDate.val() + "0101";
@@ -35,23 +37,69 @@ searchBtn.on("click", function(e){
         
         if (selection !== undefined){
             for(i=0; i<selection; i++){
-                var newDiv = $("<div>");
-                newDiv.text(responses[i].abstract);
-                var newA = $("<a>");
+                var newCard = $("<div class='inside-form' id='results'>");
+                var newArticle = $("<p id = 'articles'>");
+                var searchImg = $("<img height='100px' width ='100px'>");
+
+                // if (responses.doc[i].multimedia !== undefined){
+                //     searchImg.attr("src", responses.docs[i].multimedia[0].url);
+                // }else{
+                //     searchImg.attr("src", "https://via.placeholder.com/100");
+                // }
+
+                var newTitle = $("<div id='title'>");
+                newTitle.text(responses[i].headline.main);
+                var newA = $("<a id='link'>");
                 newA.attr("href", responses[i].web_url);
-                newA.text("Link");
-                newDiv.append(newA);
-                resulting.append(newDiv);
+                newA.text(responses[i].web_url);
+                var newAuthor = $("<div id='author'>")
+
+                if (responses[i].byline.original === null){
+                    newAuthor.text(responses[i].source);
+                }
+                else {
+                    newAuthor.text(responses[i].byline.original);
+                }
+
+                newArticle.append(searchImg);
+                newArticle.append(newTitle);
+                newArticle.append(newA);
+                newArticle.append(newAuthor);
+                newCard.append(newArticle);
+                resultTab.append(newCard);
             }
         }else {
             for(i=0; i<responses.length; i++){
-                var newDiv = $("<div>");
-                newDiv.text(responses[i].abstract);
-                var newA = $("<a>");
+                var newCard = $("<div class='inside-form' id='results'>");
+                var newArticle = $("<p id = 'articles'>");
+                var searchImg = $("<img height='100px' width ='100px'>");
+
+                // if (responses.doc[i].multimedia !== undefined){
+                //     searchImg.attr("src", responses.docs[i].multimedia[0].url);
+                // }else{
+                //     searchImg.attr("src", "https://via.placeholder.com/100");
+                // }
+
+                var newTitle = $("<div id='title'>");
+                newTitle.text(responses[i].headline.main);
+                var newA = $("<a id='link'>");
                 newA.attr("href", responses[i].web_url);
-                newA.text("Link");
-                newDiv.append(newA);
-                resulting.append(newDiv);
+                newA.text(responses[i].web_url);
+                var newAuthor = $("<div id='author'>")
+
+                if (responses[i].byline.original === null){
+                    newAuthor.text(responses[i].source);
+                }
+                else {
+                    newAuthor.text(responses[i].byline.original);
+                }
+
+                newArticle.append(searchImg);
+                newArticle.append(newTitle);
+                newArticle.append(newA);
+                newArticle.append(newAuthor);
+                newCard.append(newArticle);
+                resultTab.append(newCard);
             }
         }
 
