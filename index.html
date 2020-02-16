@@ -32,7 +32,7 @@
       <div class="form-group has-search">
         <label for="Search Term">Search Term:</label>
         <span class="fa fa-search form-control-feedback"></span>
-        <textarea type="text" class="form-control" id="input-box" placeholder="Search"></textarea>
+        <input type="text" class="form-control" id="input-box" placeholder="Search">
       </div>
       </br>
 
@@ -52,27 +52,34 @@
         <div>
           <label for="start-year">Start Year (Optional):</label>
           <span class="fa fa-search form-control-feedback"></span>
-          <input type="text" class="form-control" id="input-box">
+          <input type="text" class="form-control" id="input-begin">
         </div></br>
         <div>
           <label for="start-end">End Year (Optional):</label>
           <span class="fa fa-search form-control-feedback"></span>
-          <input type="text" class="form-control" id="input-box">
+          <input type="text" class="form-control" id="input-end">
         </div>
-      </div>
-      <button class="text-center">try this again</button>
+      </div><br><br>
+      <div style="text-align: center;">
+      <button class="btn btn-secondary btn-lg" id="button" style="text-align: center;">Submit Search</button></div>
     </div>
     </br>
   </div>
-  </div>
   </br>
-  <div class="card main w-screen mt-4">
+
+  <div class="card main w-screen mt-4" id="results-section">
 
     <div class="card-header">
       ☰ Top Articles
     </div>
 
-    <div class="inside-form" id="results">
+    <!-- <div class="inside-form" id="results">
+      <p id = "articles">
+        <img src="test.JPG">
+        <div id="title">Title</div>
+        <div id="link">Link</div>
+        <div id="author">Author</div>
+      </p> -->
       </br>
     </div>
   </div>

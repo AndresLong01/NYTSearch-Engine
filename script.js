@@ -1,12 +1,14 @@
 var searchBtn = $("button");
 var selector = $("#inputRecords");
 var field1 = $("#input-box");
-var beginDate = "20000101";
-var endDate = "20191231";
+var beginDate = $("#input-begin");
+var endDate = $("#input-end");
+var resultTab = $("#results-section");
 var resulting = $("#results");
 
 var selection;
 
+// Assigns a value to currently selected element in the dropdown menu
 selector.on("change", function(e){
     e.preventDefault();
     selection = parseInt(selector.val());
@@ -14,17 +16,18 @@ selector.on("change", function(e){
 
 searchBtn.on("click", function(e){
     e.preventDefault();
+    newCard.empty();
+
     var fieldVal = field1.val();
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+fieldVal+"&begin_date="+ beginDate + "&end_date"+ endDate +"&api-key=nZxDzm1iq1RoTDQumxglBnkJh09PA3Tp";
-    //Where is the sibling element that corresponds to the value of how many pages you want to see
-    //when that is selected, console log val();
-    //selection
-    //date
-    // hello
-    //button $(this).prev().prev().prev().val();
-    //use that value to change the loop for the result
+    var fieldBegin = "&begin_date" + beginDate.val() + "0101";
+    var fieldEnd = "&end_date" + endDate.val() + "1231";
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+fieldVal + fieldBegin + fieldEnd +"&api-key=nZxDzm1iq1RoTDQumxglBnkJh09PA3Tp";
+
     console.log(selection);
     console.log(fieldVal);
+    console.log(fieldBegin);
+    console.log(fieldEnd);
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -32,14 +35,73 @@ searchBtn.on("click", function(e){
         console.log(response);
         var responses = response.response.docs;
         
-        for(i=0; i<selection; i++){
-            var newDiv = $("<div>");
-            newDiv.text(responses[i].abstract);
-            var newA = $("<a>");
-            newA.attr("href", responses[i].web_url);
-            newA.text("Link");
-            newDiv.append(newA);
-            resulting.append(newDiv);
+        if (selection !== undefined){
+            for(i=0; i<selection; i++){
+                var newCard = $("<div class='inside-form' id='results'>");
+                var newArticle = $("<p id = 'articles'>");
+                var searchImg = $("<img height='100px' width ='100px'>");
+
+                // if (responses.doc[i].multimedia !== undefined){
+                //     searchImg.attr("src", responses.docs[i].multimedia[0].url);
+                // }else{
+                //     searchImg.attr("src", "https://via.placeholder.com/100");
+                // }
+
+                var newTitle = $("<div id='title'>");
+                newTitle.text(responses[i].headline.main);
+                var newA = $("<a id='link'>");
+                newA.attr("href", responses[i].web_url);
+                newA.text(responses[i].web_url);
+                var newAuthor = $("<div id='author'>")
+
+                if (responses[i].byline.original === null){
+                    newAuthor.text(responses[i].source);
+                }
+                else {
+                    newAuthor.text(responses[i].byline.original);
+                }
+
+                newArticle.append(searchImg);
+                newArticle.append(newTitle);
+                newArticle.append(newA);
+                newArticle.append(newAuthor);
+                newCard.append(newArticle);
+                resultTab.append(newCard);
+            }
+        }else {
+            for(i=0; i<responses.length; i++){
+                var newCard = $("<div class='inside-form' id='results'>");
+                var newArticle = $("<p id = 'articles'>");
+                var searchImg = $("<img height='100px' width ='100px'>");
+
+                // if (responses.doc[i].multimedia !== undefined){
+                //     searchImg.attr("src", responses.docs[i].multimedia[0].url);
+                // }else{
+                //     searchImg.attr("src", "https://via.placeholder.com/100");
+                // }
+
+                var newTitle = $("<div id='title'>");
+                newTitle.text(responses[i].headline.main);
+                var newA = $("<a id='link'>");
+                newA.attr("href", responses[i].web_url);
+                newA.text(responses[i].web_url);
+                var newAuthor = $("<div id='author'>")
+
+                if (responses[i].byline.original === null){
+                    newAuthor.text(responses[i].source);
+                }
+                else {
+                    newAuthor.text(responses[i].byline.original);
+                }
+
+                newArticle.append(searchImg);
+                newArticle.append(newTitle);
+                newArticle.append(newA);
+                newArticle.append(newAuthor);
+                newCard.append(newArticle);
+                resultTab.append(newCard);
+            }
         }
+
     });
 })
