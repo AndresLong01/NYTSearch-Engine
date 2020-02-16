@@ -16,7 +16,6 @@ selector.on("change", function(e){
 
 searchBtn.on("click", function(e){
     e.preventDefault();
-    newCard.empty();
 
     var fieldVal = field1.val();
     var fieldBegin = "&begin_date" + beginDate.val() + "0101";
@@ -40,12 +39,8 @@ searchBtn.on("click", function(e){
                 var newCard = $("<div class='inside-form' id='results'>");
                 var newArticle = $("<p id = 'articles'>");
                 var searchImg = $("<img height='100px' width ='100px'>");
-
-                // if (responses.doc[i].multimedia !== undefined){
-                //     searchImg.attr("src", responses.docs[i].multimedia[0].url);
-                // }else{
-                //     searchImg.attr("src", "https://via.placeholder.com/100");
-                // }
+                searchImg.attr("src", "https://via.placeholder.com/100");
+                
 
                 var newTitle = $("<div id='title'>");
                 newTitle.text(responses[i].headline.main);
@@ -73,12 +68,8 @@ searchBtn.on("click", function(e){
                 var newCard = $("<div class='inside-form' id='results'>");
                 var newArticle = $("<p id = 'articles'>");
                 var searchImg = $("<img height='100px' width ='100px'>");
-
-                // if (responses.doc[i].multimedia !== undefined){
-                //     searchImg.attr("src", responses.docs[i].multimedia[0].url);
-                // }else{
-                //     searchImg.attr("src", "https://via.placeholder.com/100");
-                // }
+                searchImg.attr("src", "https://via.placeholder.com/100");
+                
 
                 var newTitle = $("<div id='title'>");
                 newTitle.text(responses[i].headline.main);
