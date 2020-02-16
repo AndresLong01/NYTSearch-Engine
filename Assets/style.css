@@ -55,6 +55,18 @@ body {
     
 }
 
+img {
+    float: left;
+    max-height: 80px;
+    max-width: 80px;
+    margin: 10px;
+  }
+
+#title {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
 @media screen and (max-width: 992px) {
 
 
@@ -71,6 +83,9 @@ body {
       width: 800px;
     }
 
+}
+
+
 @media screen and (max-width: 992px) {
 
     img {
@@ -83,4 +98,4 @@ body {
     .wrapper {
         width: 600px;
     }
-    }
+}
