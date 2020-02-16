@@ -1,12 +1,13 @@
 var searchBtn = $("button");
 var selector = $("#inputRecords");
 var field1 = $("#input-box");
-var beginDate = "20000101";
-var endDate = "20191231";
+var beginDate = $("#input-begin");
+var endDate = $("#input-end");
 var resulting = $("#results");
 
 var selection;
 
+// Assigns a value to currently selected element in the dropdown menu
 selector.on("change", function(e){
     e.preventDefault();
     selection = parseInt(selector.val());
@@ -14,17 +15,17 @@ selector.on("change", function(e){
 
 searchBtn.on("click", function(e){
     e.preventDefault();
+
     var fieldVal = field1.val();
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+fieldVal+"&begin_date="+ beginDate + "&end_date"+ endDate +"&api-key=nZxDzm1iq1RoTDQumxglBnkJh09PA3Tp";
-    //Where is the sibling element that corresponds to the value of how many pages you want to see
-    //when that is selected, console log val();
-    //selection
-    //date
-    // hello
-    //button $(this).prev().prev().prev().val();
-    //use that value to change the loop for the result
+    var fieldBegin = "&begin_date" + beginDate.val() + "0101";
+    var fieldEnd = "&end_date" + endDate.val() + "1231";
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+fieldVal + fieldBegin + fieldEnd +"&api-key=nZxDzm1iq1RoTDQumxglBnkJh09PA3Tp";
+
     console.log(selection);
     console.log(fieldVal);
+    console.log(fieldBegin);
+    console.log(fieldEnd);
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -32,14 +33,27 @@ searchBtn.on("click", function(e){
         console.log(response);
         var responses = response.response.docs;
         
-        for(i=0; i<selection; i++){
-            var newDiv = $("<div>");
-            newDiv.text(responses[i].abstract);
-            var newA = $("<a>");
-            newA.attr("href", responses[i].web_url);
-            newA.text("Link");
-            newDiv.append(newA);
-            resulting.append(newDiv);
+        if (selection !== undefined){
+            for(i=0; i<selection; i++){
+                var newDiv = $("<div>");
+                newDiv.text(responses[i].abstract);
+                var newA = $("<a>");
+                newA.attr("href", responses[i].web_url);
+                newA.text("Link");
+                newDiv.append(newA);
+                resulting.append(newDiv);
+            }
+        }else {
+            for(i=0; i<responses.length; i++){
+                var newDiv = $("<div>");
+                newDiv.text(responses[i].abstract);
+                var newA = $("<a>");
+                newA.attr("href", responses[i].web_url);
+                newA.text("Link");
+                newDiv.append(newA);
+                resulting.append(newDiv);
+            }
         }
+
     });
 })
