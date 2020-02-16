@@ -32,7 +32,6 @@ h1 {
 
 }
 
-
 .inside-form {
 
     padding: 15px;
@@ -67,26 +66,20 @@ img {
     font-size: 18px;
 }
 
+
 @media screen and (max-width: 992px) {
-
-
     img {
       display: block;
       margin: 10px;
       width: 30%;
     }
     
-  
-
     .wrapper {
       width: 800px;
     }
-
 }
 
-
-@media screen and (max-width: 992px) {
-
+@media screen and (max-width: 600px) {
     img {
         display: block;
         margin: 10px;
@@ -94,6 +87,6 @@ img {
     }
     
     .wrapper {
-        width: 600px;
+        width: 500px;
     }
 }
