@@ -45,7 +45,7 @@ searchBtn.on("click", function(e){
                 var newCard = $("<div class='inside-form' id='results'>");
                 var newArticle = $("<p id = 'articles'>");
                 var searchImg = $("<img height='100px' width ='100px'>");
-                searchImg.attr("src", "https://via.placeholder.com/100");
+                searchImg.attr("src", "Assets/no_img.gif");
                 
 
                 var newTitle = $("<div id='title'>");
@@ -74,7 +74,7 @@ searchBtn.on("click", function(e){
                 var newCard = $("<div class='inside-form' id='results'>");
                 var newArticle = $("<p id = 'articles'>");
                 var searchImg = $("<img height='100px' width ='100px'>");
-                searchImg.attr("src", "https://via.placeholder.com/100");
+                searchImg.attr("src", "Assets/no_img.gif");
                 
 
                 var newTitle = $("<div id='title'>");
