@@ -1,4 +1,5 @@
-var searchBtn = $("button");
+var searchBtn = $("#searchButton");
+var clearBtn = $("#clearButton");
 var selector = $("#inputRecords");
 var field1 = $("#input-box");
 var beginDate = $("#input-begin");
@@ -13,6 +14,11 @@ selector.on("change", function(e){
     e.preventDefault();
     selection = parseInt(selector.val());
 })
+clearBtn.on("click", function(e){
+    e.preventDefault();
+    $("#results-section").empty();
+    
+});
 
 searchBtn.on("click", function(e){
     e.preventDefault();
