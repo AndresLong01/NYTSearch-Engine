@@ -10,6 +10,7 @@ var selection;
 selector.on("change", function(e){
     e.preventDefault();
     selection = parseInt(selector.val());
+    
 })
 
 searchBtn.on("click", function(e){
@@ -29,15 +30,15 @@ searchBtn.on("click", function(e){
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response);
         var responses = response.response.docs;
-        
+
+        console.log(this.parentElement);
         for(i=0; i<selection; i++){
             var newDiv = $("<div>");
             newDiv.text(responses[i].abstract);
             var newA = $("<a>");
             newA.attr("href", responses[i].web_url);
-            newA.text("Link");
+            newA.text(" Link");
             newDiv.append(newA);
             resulting.append(newDiv);
         }
